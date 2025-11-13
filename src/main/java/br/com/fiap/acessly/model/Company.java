@@ -32,7 +32,7 @@ public class Company {
 
     @NotNull(message = "{company.user.notnull}")
     @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     @NotBlank(message = "{company.name.notblank]}")
