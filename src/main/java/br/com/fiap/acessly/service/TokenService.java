@@ -20,14 +20,16 @@ public class TokenService {
     }
 
     public String generateToken(User user) {
+        Instant now = Instant.now();
+
         var claims = JwtClaimsSet.builder()
-            .issuer("acessly")
-            .issuedAt(Instant.now())
-            .expiresAt(Instant.now().plus(5, ChronoUnit.MINUTES))
-            .subject(user.getId().toString())
+            .issuer("acessly-api")
+            .issuedAt(now)
+            .expiresAt(now.plus(1, ChronoUnit.HOURS))
+            .subject(user.getEmail())
             .claim("email", user.getEmail())
             .claim("name", user.getName())
-            .claim("role", user.getUserRole().toString())
+            .claim("role", "ROLE_" + user.getUserRole().toString())
             .build();
 
         return jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();

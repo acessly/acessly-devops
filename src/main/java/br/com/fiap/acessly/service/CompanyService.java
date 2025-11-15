@@ -37,16 +37,16 @@ public class CompanyService {
         }
 
         User user = userRepository.findById(userId)
-            .orElseThrow(() -> new RuntimeException("User not found"));
-        
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
         Company company = Company.builder()
-            .user(user)
-            .name(request.name())
-            .sector(request.sector())
-            .acessibilityType(request.acessibilityType())
-            .website(request.website())
-            .description(request.description())
-            .build();
+                .user(user)
+                .name(request.name())
+                .sector(request.sector())
+                .acessibilityType(request.acessibilityType())
+                .website(request.website())
+                .description(request.description())
+                .build();
 
         company = companyRepository.save(company);
         return toResponse(company);
@@ -69,7 +69,7 @@ public class CompanyService {
             }
 
             User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                    .orElseThrow(() -> new RuntimeException("User not found"));
             company.setUser(user);
             company.setName(request.name());
             company.setSector(request.sector());
@@ -91,30 +91,29 @@ public class CompanyService {
 
     private CompanyResponse toResponse(Company company) {
         return new CompanyResponse(
-            company.getId(),
-            company.getName(),
-            company.getSector(),
-            company.getAcessibilityType(),
-            company.getWebsite(),
-            company.getDescription(),
-            company.getUser().getId()
-        );
+                company.getId(),
+                company.getName(),
+                company.getSector(),
+                company.getAcessibilityType(),
+                company.getWebsite(),
+                company.getDescription(),
+                company.getUser().getId());
     }
 
-    public Page<CompanyResponse> getCompaniesWithFilters(String name, String sector, String acessibilityType, @NonNull Pageable pageable) {
-    return companyRepository.findAll(
-        (root, query, cb) -> {
-            List<Predicate> predicates = new ArrayList<>();
-            if (name != null && !name.isBlank())
-                predicates.add(cb.like(cb.lower(root.get("name")), "%" + name.toLowerCase() + "%"));
-            if (sector != null && !sector.isBlank())
-                predicates.add(cb.like(cb.lower(root.get("sector")), "%" + sector.toLowerCase() + "%"));
-            if (acessibilityType != null && !acessibilityType.isBlank())
-                predicates.add(cb.equal(root.get("acessibilityType"), acessibilityType));
-            return cb.and(predicates.toArray(new Predicate[0]));
-        },
-        pageable
-    ).map(this::toResponse);
-}
+    public Page<CompanyResponse> getCompaniesWithFilters(String name, String sector, String acessibilityType,
+            @NonNull Pageable pageable) {
+        return companyRepository.findAll(
+                (root, query, cb) -> {
+                    List<Predicate> predicates = new ArrayList<>();
+                    if (name != null && !name.isBlank())
+                        predicates.add(cb.like(cb.lower(root.get("name")), "%" + name.toLowerCase() + "%"));
+                    if (sector != null && !sector.isBlank())
+                        predicates.add(cb.like(cb.lower(root.get("sector")), "%" + sector.toLowerCase() + "%"));
+                    if (acessibilityType != null && !acessibilityType.isBlank())
+                        predicates.add(cb.equal(root.get("acessibilityType"), acessibilityType));
+                    return cb.and(predicates.toArray(new Predicate[0]));
+                },
+                pageable).map(this::toResponse);
+    }
 
 }
