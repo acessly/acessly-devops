@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -66,9 +67,7 @@ public class VacancyController {
     }
 
     @Operation(summary = "Consulta paginada e filtrada de vagas")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Página de vagas encontrada")
-    })
+    @ApiResponse(responseCode = "200", description = "Página de vagas encontrada")
     @GetMapping
     public ResponseEntity<Page<VacancyResponse>> getVacancies(
             @Parameter(description = "Filtro por título (opcional)") @RequestParam(required = false) String title,
@@ -88,7 +87,7 @@ public class VacancyController {
             @ApiResponse(responseCode = "403", description = "Acesso negado - apenas empresas podem atualizar vagas")
     })
     @PreAuthorize("hasRole('COMPANY')")
-    @PostMapping("{id}")
+    @PutMapping("{id}")
     public ResponseEntity<VacancyResponse> updateVacancy(
             @Parameter(description = "ID da vaga") @PathVariable Long id,
             @Parameter(description = "Novos dados da vaga") @Valid @RequestBody VacancyRequest request) {

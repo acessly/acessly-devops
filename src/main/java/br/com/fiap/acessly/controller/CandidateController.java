@@ -65,9 +65,7 @@ public class CandidateController {
     }
 
     @Operation(summary = "Consulta paginada e filtrada de candidatos")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Página de candidatos encontrada")
-    })
+    @ApiResponse(responseCode = "200", description = "Página de candidatos encontrada")
     @GetMapping
     public ResponseEntity<Page<CandidateResponse>> getCandidates(
             @Parameter(description = "Filtro por tipo de deficiência") @RequestParam(required = false) String disabilityType,

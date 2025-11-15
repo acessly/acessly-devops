@@ -67,9 +67,7 @@ public class CompanyController {
     }
 
     @Operation(summary = "Consulta paginada e filtrada de empresas")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Página de empresas encontrada com sucesso")
-    })
+    @ApiResponse(responseCode = "200", description = "Página de empresas encontrada com sucesso")
     @GetMapping
     public ResponseEntity<Page<CompanyResponse>> getCompanies(
             @Parameter(description = "Filtro por nome (opcional)") @RequestParam(required = false) String name,
