@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  acessly:
+    build: .
+    container_name: acessly
+    environment:
+      DB_USERNAME: 'rm560967'
+      DB_PASSWORD: '240406'
+    ports:
+      - "8080:8080"
