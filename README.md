@@ -7,6 +7,10 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
 - **Java 17:** Linguagem principal da aplicação backend.
 - **Spring Boot:** Framework para criação de APIs REST.
 - **Maven:** Gerenciador de dependências e build.
+- **React Native:** Framework para desenvolvimento de aplicações móveis multiplataforma.
+- **Expo:** Ferramenta que facilita o desenvolvimento, build e deploy de apps React Native.
+- **Expo Router:** Biblioteca para navegação e roteamento de páginas em aplicativos Expo/React Native.
+- **Axios:** Biblioteca para realizar requisições HTTP de forma simples e eficiente.
 - **Docker:** Ferramenta de containerização da aplicação.
 - **Docker Compose:** Ferramenta para orquestrar containers da aplicação.
 - **Linux:** Sistema operacional da máquina virtual responsável pela API REST.
