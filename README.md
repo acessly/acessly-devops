@@ -3,6 +3,18 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
 
 ---
 
+## ⚙️ Tecnologias Utilizadas
+- **Java 17:** Linguagem principal da aplicação backend.
+- **Spring Boot:** Framework para criação de APIs REST.
+- **Maven:** Gerenciador de dependências e build.
+- **Docker:** Ferramenta de containerização da aplicação.
+- **Docker Compose:** Ferramenta para orquestrar containers da aplicação.
+- **Linux:** Sistema operacional da máquina virtual responsável pela API REST.
+- **Windows:** Sistema operacional da máquina virtual responsável pelo App Mobile.
+- **Azure:** Plataforma em nuvem utilizada para o deploy.
+
+---
+
 ## 🚀 Como Usar
 
 1. **Clone o Repositório:**
