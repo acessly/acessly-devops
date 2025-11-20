@@ -45,3 +45,5 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
    ```bash
    docker ps
    ```
+
+5. **Acesse a pasta do App:**
