@@ -40,10 +40,26 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
    docker-compose up -d
    ```
 
-4. **Verificar se esta rodando:**
+4. **Verificar se a API esta rodando:**
 
    ```bash
    docker ps
    ```
 
 5. **Acesse a pasta do App:**
+
+   ```bash
+   cd frontend-app
+   ```
+
+6. **Construa e Execute o container em background:**
+
+   ```bash
+   docker-compose up -d
+   ```
+
+7. **Verificar se o App esta rodando:**
+
+   ```bash
+   docker ps
+   ```
