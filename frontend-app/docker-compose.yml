@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  acessly-app:
+    build: .
+    container_name: acessly-expo-web
+    ports:
+      - "8081:8081"   # Apenas porta do modo web
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - EXPO_NO_TELEMETRY=1
+    command: ["npx", "expo", "start", "--web"]
