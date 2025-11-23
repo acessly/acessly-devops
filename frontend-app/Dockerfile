@@ -1,6 +1,6 @@
 # Dockerfile para Acessly - React Native com Expo (modo web)
 
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
