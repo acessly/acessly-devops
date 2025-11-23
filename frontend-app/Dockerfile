@@ -1,37 +1,37 @@
-# Dockerfile para Acessly - React Native com Expo (modo web e mobile)
+# Dockerfile para Acessly - React Native com Expo (modo web)
 
-# Imagem base já inclui Node e npm, então não precisa de "sudo apt install npm"
+# Imagem base moderna do Node.js
 FROM node:22-alpine
 
 # Definir diretório de trabalho
 WORKDIR /app
 
-# Instalar pacotes do sistema (git e bash)
+# Instalar dependências do sistema
 RUN apk add --no-cache git bash
 
-# Copiar apenas os arquivos de dependência
+# Copiar apenas arquivos de dependência
 COPY package*.json ./
 
 # Instalar dependências do projeto
 RUN npm install
 
-# Instalar Expo CLI e ngrok globalmente
-RUN npm install -g expo-cli @expo/ngrok
+# Instalar Expo CLI globalmente
+RUN npm install -g expo-cli
 
-# Copiar o restante do código do projeto
+# Copiar o restante do código
 COPY . .
 
-# Instalar automaticamente dependências necessárias para modo Web
-# (equivalente a rodar: npx expo install react-dom react-native-web)
-RUN npx expo install react-dom react-native-web scheduler --non-interactive || true
+# Instalar dependências necessárias para o modo web
+# (sem interação, usando CI=1)
+RUN CI=1 npx expo install react-dom react-native-web scheduler || true
 
-# Expor portas usadas pelo Expo
-EXPOSE 8081 19000 19001 19002
+# Expor a porta usada pelo Expo Web
+EXPOSE 8081
 
-# Desativar telemetria e logs desnecessários
+# Variáveis de ambiente
 ENV NPM_CONFIG_LOGLEVEL=error
 ENV EXPO_NO_TELEMETRY=1
-ENV CI=false
+ENV CI=true
 
-# Comando padrão para iniciar o Expo (modo web)
+# Comando padrão: iniciar Expo no modo web
 CMD ["npx", "expo", "start", "--web"]
