@@ -66,7 +66,7 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
 
 ---
 
-## ☁️ Deploy na Máquina Virtual (Azure)
+## ☁️ Deploy na Máquina Virtual - Linux (Azure)
 
 1. **Conectar na VM com Aplicação Back-End:**
 
@@ -142,4 +142,75 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
     http://<ip-pubico>:8080/swagger-ui/index.html
     ```
 
-12. **Conectar na VM com Aplicação Front-End:**
+## ☁️ Deploy na Máquina Virtual - Windows (Azure)
+
+1. **Conectar na VM com Aplicação Back-End:**
+
+
+2. **Atualizar Pacotes do Sistema:**
+
+   ```bash
+   sudo apt update -y
+   ```
+
+3. **Instalar Docker:**
+
+   ```bash
+   sudo apt install docker.io -y
+   ```
+
+4. **Instalar o Docker-Compose:**
+
+   ```bash
+   sudo apt install docker-compose
+   ```
+
+5. **Iniciar o serviço Docker:**
+
+   ```bash
+   sudo systemctl start docker
+   ```
+
+6. **Permitir uso do Docker sem sudo:**
+
+   ```bash
+   sudo usermod -aG docker $USER
+   ```
+
+7. **Encerrar a sessão atual:**
+
+   ```bash
+   exit
+   ```
+
+8. **Reconectar na VM:**
+
+   ```bash
+   ssh azureuser@<ip-publico>
+   ```
+
+9. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/acessly/acessly-devops.git
+   cd acessly-devops
+   cd frontend-app
+   ```
+
+10. **Executando o Docker Compose:**
+
+    ```bash
+    docker compose up -d --build
+    ```
+
+11. **Verificar se está rodando:**
+
+    ```bash
+    docker ps
+    ```
+
+12. **Acesse o App:**
+
+    ```bash
+    http://<ip-pubico>:8081
+    ```
