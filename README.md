@@ -63,3 +63,23 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
    ```bash
    docker ps
    ```
+
+## ☁️ Deploy na Máquina Virtual (Azure)
+
+1. **Conectar na VM com Aplicação Back-End:**
+
+   ```bash
+   ssh azureuser@<ip-publico>
+   ```
+
+2. **Atualizar Pacotes do Sistema:**
+
+   ```bash
+   sudo apt update -y
+   ```
+
+3. **Instalar Docker:**
+
+   ```bash
+   sudo apt install docker.io -y
+   ```
