@@ -64,6 +64,8 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
    docker ps
    ```
 
+---
+
 ## ☁️ Deploy na Máquina Virtual (Azure)
 
 1. **Conectar na VM com Aplicação Back-End:**
@@ -139,3 +141,5 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
     ```bash
     http://<ip-pubico>:8080/swagger-ui/index.html
     ```
+
+12. **Conectar na VM com Aplicação Front-End:**
