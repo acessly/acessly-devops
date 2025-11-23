@@ -83,3 +83,59 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
    ```bash
    sudo apt install docker.io -y
    ```
+
+4. **Instalar o Docker-Compose:**
+
+   ```bash
+   sudo apt install docker-compose
+   ```
+
+5. **Iniciar o serviço Docker:**
+
+   ```bash
+   sudo systemctl start docker
+   ```
+
+6. **Permitir uso do Docker sem sudo:**
+   
+   ```bash
+   sudo usermod -aG docker $USER
+   ```
+
+7. **Encerrar a sessão atual:**
+
+   ```bash
+   exit
+   ```
+
+8. **Reconectar na VM:**
+
+   ```bash
+   ssh azureuser@<ip-publico>
+   ```
+
+9. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/acessly/acessly-devops.git
+   cd acessly-devops
+   cd backend-api
+   ```
+
+10. **Executando o Docker Compose:**
+
+    ```bash
+    docker-compose up -d
+    ```
+
+11. **Verificar se está rodando:**
+
+    ```bash
+    docker ps
+    ```
+
+11. **Acessando documentação da API:**
+
+    ```bash
+    http://<ip-pubico>:8080/swagger-ui/index.html
+    ```
