@@ -144,7 +144,7 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
 
 ## ☁️ Deploy na Máquina Virtual - Windows (Azure)
 
-1. **Conectar na VM com Aplicação Back-End:**
+1. **Conectar na VM com Aplicação Front-End:**
 
 
 2. **Atualizar Pacotes do Sistema:**
@@ -162,7 +162,7 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
 4. **Instalar o Docker-Compose:**
 
    ```bash
-   sudo apt install docker-compose
+   sudo apt install docker-compose -y
    ```
 
 5. **Iniciar o serviço Docker:**
@@ -200,7 +200,7 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
 10. **Executando o Docker Compose:**
 
     ```bash
-    docker compose up -d --build
+    docker-compose up -d --build
     ```
 
 11. **Verificar se está rodando:**
