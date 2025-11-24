@@ -147,7 +147,7 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
     http://<ip-pubico>:8080/swagger-ui/index.html
     ```
 
-## ☁️ Deploy na Máquina Virtual - Windows (Azure)
+## ☁️ Deploy na Máquina Virtual - Linux (Azure)
 
 1. **Conectar na VM com Aplicação Front-End:**
 
