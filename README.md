@@ -146,6 +146,9 @@ Esse projeto consiste em uma API REST desenvolvida na disciplina de Java Advance
 
 1. **Conectar na VM com Aplicação Front-End:**
 
+   ```bash
+   mstsc /v:<ip-publico>
+   ```
 
 2. **Atualizar Pacotes do Sistema:**
 
